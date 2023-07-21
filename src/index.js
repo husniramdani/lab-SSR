@@ -1,6 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 
-// hydrate will reuse the existing DOM nodes instead of creating new ones
-ReactDOM.hydrate(<App />, document.getElementById("root"));
+ReactDOM.hydrate(
+  <React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>,
+  document.getElementById("root")
+);

@@ -1,24 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link, Route, Routes } from "react-router-dom";
+import About from "./About";
+import Home from "./Home";
 
-function App() {
-  const [count, setCount] = useState(0);
+const App = () => {
   return (
-    <div style={{ textAlign: "center" }}>
-      <p>{count}</p>
-      <button
-        onClick={() => setCount(count - 1)}
-        style={{ margin: 20, padding: 12 }}
-      >
-        -
-      </button>
-      <button
-        onClick={() => setCount(count + 1)}
-        style={{ margin: 20, padding: 12 }}
-      >
-        +
-      </button>
+    <div className="app">
+      <h1>Hello Mom</h1>
+      <Link to="/" style={{ marginRight: 20, fontSize: 18 }}>
+        Home
+      </Link>
+      <Link to="/about" style={{ fontSize: 18 }}>
+        About
+      </Link>
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/about" element={<About />}></Route>
+      </Routes>
     </div>
   );
-}
+};
 
 export default App;
